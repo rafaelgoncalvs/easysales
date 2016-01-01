@@ -4,76 +4,56 @@
     <meta charset="utf-8">
     <title>Vendas</title>
 
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="resources/css/bootstrap-responsive.css" rel="stylesheet">
-    <script type="text/javascript" src="resources/js/bootstrap.js"></script>
     <script type="text/javascript" src="resources/js/jquery-2.1.4.min.js"></script>
+    <script>window.jQuery || document.write('<script src="resources/js/jquery-2.1.4.min.js"><\/script>')</script>
+    <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="resources/js/angular.min.js"></script>
-    
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
-
     <script type="text/javascript" src="app.js"></script>
+
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">    
   </head>
 
-  <body ng-controller="SaleController as saleCtrl">
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">Easy Sales</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Vendas</a></li>
-              <li><a href="#">Recebimentos</a></li>
-              <li><a href="#">Clientes</a></li>
-            </ul>
-            <div class="navbar-form pull-right">
-              <ul class="nav">
-                <li><a>Rafael Gonçalves</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <body ng-controller="ListSaleController as listSaleCtrl">
 
     <div class="container">
 
-      <div class="hero-unit">
-        <h3>Venda</h3>
-        <ul>
-          <span>Data: <input class="span2" type="date"></span>
-        </ul>
-        <ul>
-          <span>Cliente: <input class="span2" type="text" placeholder="Digite o nome do cliente"></span>
-        </ul>
-        <ul>
-          <form>
-            <span>Produto: <input class="span2" type="text" placeholder="Digite o nome do produto"></span>
-            <span>Valor: <input class="span2" type="number" placeholder="R$ 89,90"></span>
-            <button type="submit" class="btn">Adicionar</button>
-          </form>
-        </ul>
-        <form>
-          <button type="submit" class="btn btn-primary btn-large">Salvar</button>
+      <div class="panel panel-default">
+        <form ng-controller="SaleController as saleCtrl" ng-submit="saleCtrl.addSale()">
+          <h3>Venda</h3>
+          <ul>
+            <span>Data: <input ng-model="saleCtrl.sale.date" class="span2" type="date"></span>
+          </ul>
+          <ul>
+            <span>Cliente: <input ng-model="saleCtrl.sale.client" class="span2" type="text" placeholder="Nome do cliente"></span>
+          </ul>
+          <ul>
+              <span>Produto: <input class="span2" type="text" placeholder="Nome do produto"></span>
+              <span>Valor: <input class="span2" type="number" placeholder="R$ 89,90"></span>
+              <button type="submit" class="btn">Adicionar</button>
+          </ul>
+          <ul>
+            <button type="submit" class="btn btn-primary btn-large">Salvar</button>
+          </ul>
         </form>
       </div>
 
-      <div ng-repeat="sale in saleCtrl.sales">
-          <h2>{{sale.client}}</h2>
-           {{sale.date}}
-           <p>{{sale.value}}</p>
+      <div ng-repeat="sale in listSaleCtrl.sales">
+        <div class="panel panel-primary">
+          <div class="panel-body">
+            {{sale.date | date: "dd/MM/yyyy"}}
+            <h2>{{sale.client}}</h2>
+            <ul>
+              <h4>Produtos</h4>
+              <li ng-repeat="product in sale.products">
+                <strong>{{product.name}}</strong>
+                {{product.value}}
+              </li>
+            </ul>
+            <p>Total: {{sale.value}}</p>
+          </div>
+        </div>
       </div>
+
     </div>
 
   </body>

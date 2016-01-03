@@ -23,7 +23,7 @@ public class SaleService {
 		ProductDTO productDTO = new ProductDTO();
 		productDTO.setName("Calça");
 		productDTO.setValue(BigDecimal.valueOf(34.60));
-		saleDTO.setProductsDTOs(Arrays.asList(productDTO));
+		saleDTO.setProducts(Arrays.asList(productDTO));
 		return Arrays.asList(saleDTO);
     }
 	

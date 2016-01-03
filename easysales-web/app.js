@@ -7,10 +7,28 @@
 	});
 
 	app.controller('SaleController', function($scope) {
-		this.sale = {};
+		this.sale = {
+			client: '',
+			date: '',
+			value: 0.0,
+			products: []
+		};
 		this.addSale = function() {
 			salesTemp.unshift(this.sale);
-			this.sale = {};
+			this.sale = {
+				client: '',
+				date: '',
+				value: 0.0,
+				products: []
+			};
+		};
+
+		this.product = {};
+		this.addProduct = function() {
+			console.log(this.product);
+			console.log(this.sale);
+			this.sale.products.push(this.product);
+			this.product = {};
 		};
 	});
 

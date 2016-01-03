@@ -2,8 +2,10 @@
 
 	var app = angular.module('easySales', []);
 
-	app.controller('ListSaleController', function() {		
-		this.sales = salesTemp;
+	app.controller('ListSaleController', function($http) {
+		$http.get('http://localhost:8080/easysales-api/rest/sales').success(function(data) {
+			this.sales = data;
+      	});
 	});
 
 	app.controller('SaleController', function($scope) {

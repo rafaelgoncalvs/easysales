@@ -5,7 +5,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -15,7 +17,7 @@ public class SaleService {
 
 	@GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<SaleDTO> people() {
+    public List<SaleDTO> findSales() {
 		SaleDTO saleDTO = new SaleDTO();
 		saleDTO.setClient("Rafael");
 		saleDTO.setDate(new Date());
@@ -26,5 +28,12 @@ public class SaleService {
 		saleDTO.setProducts(Arrays.asList(productDTO));
 		return Arrays.asList(saleDTO);
     }
+	
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void addSale(SaleDTO saleDTO) {
+		System.out.println(saleDTO);
+	}
 	
 }

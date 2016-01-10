@@ -3,7 +3,7 @@
 	var app = angular.module('easySales', []);
 
 	app.controller('ListSaleController', function($scope, $http) {
-		$http.get('http://localhost:8080/easysales-api/rest/sale').success(function(data) {
+		$http.get('http://localhost:8080/easysales-api/rest/sales').success(function(data) {
 			$scope.sales = data;
 	    });
 		this.sales = salesTemp;
@@ -26,16 +26,40 @@
 				products: []
 			};
 
-			var data = $.param({
-	            json: JSON.stringify({
-	                client: this.sale.client,
-	                date: this.sale.date
-	            })
-        	});
-			
-			$http.post("http://localhost:8080/easysales-api/rest/sale", data).success(function(data, status) {
-            	$scope.hello = data;
-        	})
+			var saleJson = { 
+				date: 1452453109225,
+				client: 'Rafael Goncalves',
+				value: 34.60,
+				products: [
+					{
+				    	name: "Calca Jeans",
+				                value: 20.00
+				    },
+				    {
+				        name: 'Camisa Amarela',
+				        value: 14.60
+				    }
+				]
+					
+			}
+
+			var req = {
+				method: 'POST',
+				url: 'http://localhost:8080/easysales-api/rest/sales',
+				headers: {},
+				data: saleJson
+			}
+
+			$http(req).then(function successCallback(response) {
+    			$scope.sales.unshift(saleJson);
+    			console.log(response);
+  			}, function errorCallback(response) {
+  				console.log('erro');
+  			});
+
+			//$http.post("http://localhost:8080/easysales-api/rest/sales", data).success(function(data, status) {
+            	//$scope.hello = data;
+        	//})
 		};
 
 		this.product = {};

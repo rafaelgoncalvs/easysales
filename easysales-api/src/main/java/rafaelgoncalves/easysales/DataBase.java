@@ -12,14 +12,14 @@ public class DataBase {
 	
 	private List<Sale> sales = new ArrayList<>();
 	
-	public DataBase() {
+	private DataBase() {
+	}
+
+	public static DataBase getInstance() {
 		if(dataBase == null) {
 			dataBase = new DataBase();
 			dataBase.sales.add(Sale.of("Client of Test", new Date(), Arrays.asList(Product.of("Jeans", BigDecimal.valueOf(100.0)))));
 		}
-	}
-
-	public static DataBase getInstance() {
 		return dataBase;
 	}
 

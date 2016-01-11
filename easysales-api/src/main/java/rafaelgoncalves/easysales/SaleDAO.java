@@ -10,7 +10,7 @@ public class SaleDAO implements SalesRepository {
 	}
 	
 	public void add(Sale sale) {
-		DataBase.getSales().add(sale);
+		DataBase.getSales().add(0, sale);
 	}
 
 }

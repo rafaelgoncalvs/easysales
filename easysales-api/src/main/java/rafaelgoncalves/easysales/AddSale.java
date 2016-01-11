@@ -3,10 +3,16 @@ package rafaelgoncalves.easysales;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.inject.Inject;
+
 public class AddSale {
 
-	//@Inject
 	private SalesRepository salesRepository;
+	
+	@Inject
+	public AddSale(SalesRepository salesRepository) {
+		this.salesRepository = salesRepository;
+	}
 
 	public void add(SaleDTO saleDTO) {
 		List<Product> products = saleDTO.getProducts().stream().map(productDTO -> createProduct(productDTO)).collect(Collectors.toList());

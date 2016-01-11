@@ -2,6 +2,7 @@ package rafaelgoncalves.easysales;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -13,10 +14,10 @@ import javax.ws.rs.core.Response;
 @Path("/sales")
 public class SaleResource {
 
-	//@Inject
+	@Inject
 	private QuerySale querySale;
 	
-	//@Inject
+	@Inject
 	private AddSale addSale;
 	
 	@GET

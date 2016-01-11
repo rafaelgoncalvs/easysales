@@ -3,10 +3,16 @@ package rafaelgoncalves.easysales;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.inject.Inject;
+
 public class QuerySale {
 
-	//@Inject
 	private SalesRepository salesRepository;
+
+	@Inject
+	public QuerySale(SalesRepository salesRepository) {
+		this.salesRepository = salesRepository;
+	}
 
 	public List<SaleDTO> findAll() {
 		List<Sale> sales = salesRepository.findAll();

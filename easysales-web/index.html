@@ -21,10 +21,10 @@
         <form ng-controller="SaleController as saleCtrl">
           <h3>Venda</h3>
           <ul>
-            <span>Data: <input ng-model="saleCtrl.sale.date" class="span2" type="date"></span>
+            <span>Data: <input ng-model="sale.date" class="span2" type="date"></span>
           </ul>
           <ul>
-            <span>Cliente: <input ng-model="saleCtrl.sale.client" class="span2" type="text" placeholder="Nome do cliente"></span>
+            <span>Cliente: <input ng-model="sale.client" class="span2" type="text" placeholder="Nome do cliente"></span>
           </ul>
           <ul>
             <span>Produto: <input ng-model="saleCtrl.product.name" class="span2" type="text" placeholder="Nome do produto"></span>
@@ -32,7 +32,7 @@
             <button ng-click="saleCtrl.addProduct()" class="btn">Adicionar</button>
           </ul>
           <ul>
-            <li ng-repeat="product in saleCtrl.sale.products">
+            <li ng-repeat="product in saleCtrl.products">
               <strong>{{product.name}}</strong>
               {{product.value}}
             </li>

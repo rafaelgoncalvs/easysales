@@ -20,11 +20,11 @@
     </context-param>
     <context-param>
 		<param-name>resteasy.resources</param-name>
-		<param-value>rafaelgoncalves.easysales.SaleResource</param-value>
+		<param-value>rafaelgoncalves.easysales.api.SaleResource</param-value>
 	</context-param>
     <filter>
 	    <filter-name>ServiceFilter</filter-name>
-	    <filter-class>rafaelgoncalves.easysales.ServiceFilter</filter-class>
+	    <filter-class>rafaelgoncalves.easysales.api.ServiceFilter</filter-class>
 	</filter>
 	<filter-mapping>
 	    <filter-name>ServiceFilter</filter-name>

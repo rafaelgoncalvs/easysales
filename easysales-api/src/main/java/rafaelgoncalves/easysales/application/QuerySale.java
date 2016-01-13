@@ -1,9 +1,13 @@
-package rafaelgoncalves.easysales;
+package rafaelgoncalves.easysales.application;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.inject.Inject;
+
+import rafaelgoncalves.easysales.domain.Product;
+import rafaelgoncalves.easysales.domain.Sale;
+import rafaelgoncalves.easysales.domain.SalesRepository;
 
 public class QuerySale {
 
@@ -23,7 +27,7 @@ public class QuerySale {
 		SaleDTO saleDTO = new SaleDTO();
 		saleDTO.setClient(sale.getClient());
 		saleDTO.setDate(sale.getDate());
-		saleDTO.setValue(sale.value());
+		saleDTO.setValue(sale.getValue().get());
 		saleDTO.setProducts(sale.getProducts().stream().map(product -> createProduct(product)).collect(Collectors.toList()));
 		return saleDTO;
 	}
@@ -31,7 +35,7 @@ public class QuerySale {
 	private ProductDTO createProduct(Product product) {
 		ProductDTO productDTO = new ProductDTO();
 		productDTO.setName(product.getName());
-		productDTO.setValue(product.getValue());
+		productDTO.setPrice(product.getPrice().get());
 		return productDTO;
 	}
 }

@@ -1,4 +1,4 @@
-package rafaelgoncalves.easysales;
+package rafaelgoncalves.easysales.application;
 
 import java.math.BigDecimal;
 
@@ -23,7 +23,7 @@ public class ProductDTO {
 		return value;
 	}
 
-	public void setValue(BigDecimal value) {
+	public void setPrice(BigDecimal value) {
 		this.value = value;
 	}
 	

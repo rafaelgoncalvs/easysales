@@ -1,4 +1,4 @@
-package rafaelgoncalves.easysales;
+package rafaelgoncalves.easysales.api;
 
 import java.io.IOException;
 

@@ -28,13 +28,13 @@
           </ul>
           <ul>
             <span>Produto: <input ng-model="saleCtrl.product.name" class="span2" type="text" placeholder="Nome do produto"></span>
-            <span>Valor: <input ng-model="saleCtrl.product.value" class="span2" type="number" placeholder="R$ 89,90"></span>
+            <span>Valor: <input ng-model="saleCtrl.product.price" class="span2" type="number" placeholder="R$ 89,90"></span>
             <button ng-click="saleCtrl.addProduct()" class="btn">Adicionar</button>
           </ul>
           <ul>
             <li ng-repeat="product in saleCtrl.products">
               <strong>{{product.name}}</strong>
-              {{product.value}}
+              {{product.price}}
             </li>
           </ul>
           <ul>
@@ -52,10 +52,18 @@
               <h4>Produtos</h4>
               <li ng-repeat="product in sale.products">
                 <strong>{{product.name}}</strong>
-                {{product.value}}
+                {{product.price}}
               </li>
             </ul>
             <p>Total: {{sale.value}}</p>
+            <div class="panel panel-default">
+              <div class="panel-heading">Pagamentos</div>
+              <div class="panel-body">
+                <span>Data: <input class="span2" type="date"></span>
+                <span>Valor Recebido: <input class="span2" type="number" placeholder="Valor recebido"></span>
+                <button class="btn">Adicionar</button>
+              </div>
+          </div>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-package rafaelgoncalves.easysales;
+package rafaelgoncalves.easysales.api;
 
 import java.util.List;
 
@@ -10,6 +10,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import rafaelgoncalves.easysales.application.AddSale;
+import rafaelgoncalves.easysales.application.QuerySale;
+import rafaelgoncalves.easysales.application.SaleDTO;
 
 @Path("/sales")
 public class SaleResource {

@@ -1,4 +1,4 @@
-package rafaelgoncalves.easysales;
+package rafaelgoncalves.easysales.domain;
 
 import java.util.List;
 

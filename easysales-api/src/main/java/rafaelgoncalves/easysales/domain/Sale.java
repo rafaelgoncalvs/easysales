@@ -1,6 +1,5 @@
-package rafaelgoncalves.easysales;
+package rafaelgoncalves.easysales.domain;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -13,6 +12,8 @@ public class Sale {
 	private Date date;
 	
 	private List<Product> products = new ArrayList<>();
+	
+	private List<Payment> payments = new ArrayList<>();
 
 	private Sale(String client, Date date, List<Product> products) {
 		this.client = client;
@@ -36,8 +37,12 @@ public class Sale {
 		return Collections.unmodifiableList(products);
 	}
 
-	public BigDecimal value() {
-		return products.stream().map(Product::getValue).reduce(BigDecimal.ZERO, BigDecimal::add);
+	public List<Payment> getPayments() {
+		return Collections.unmodifiableList(payments);
+	}
+
+	public Monetary getValue() {
+		return products.stream().map(Product::getPrice).reduce(Monetary.ZERO, Monetary::sum);
 	}
 
 }

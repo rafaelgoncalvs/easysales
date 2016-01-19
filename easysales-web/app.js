@@ -29,8 +29,6 @@
 			$http(request).then(function successCallback(response) {
     			$scope.sales.unshift(saleJson);
     			$scope.sale = {};
-    			
-    			console.log(response);
   			}, function errorCallback(response) {
   				console.log('erro');
   			});
@@ -40,6 +38,14 @@
 		this.addProduct = function() {
 			this.products.unshift(this.product);
 			this.product = {};
+		};
+	});
+
+	app.controller('PaymentController', function($scope, $http) {
+		this.payment = {};
+		this.addPayment = function(sale) {
+			sale.payments.unshift(this.payment);
+			this.payment = {};
 		};
 	});
 

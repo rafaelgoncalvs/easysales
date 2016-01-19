@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
+import rafaelgoncalves.easysales.domain.Payment;
 import rafaelgoncalves.easysales.domain.Product;
 import rafaelgoncalves.easysales.domain.Sale;
 import rafaelgoncalves.easysales.domain.SalesRepository;
@@ -29,6 +30,7 @@ public class QuerySale {
 		saleDTO.setDate(sale.getDate());
 		saleDTO.setValue(sale.getValue().get());
 		saleDTO.setProducts(sale.getProducts().stream().map(product -> createProduct(product)).collect(Collectors.toList()));
+		saleDTO.setPayments(sale.getPayments().stream().map(payment -> createPayment(payment)).collect(Collectors.toList()));
 		return saleDTO;
 	}
 
@@ -37,5 +39,12 @@ public class QuerySale {
 		productDTO.setName(product.getName());
 		productDTO.setPrice(product.getPrice().get());
 		return productDTO;
+	}
+	
+	private PaymentDTO createPayment(Payment payment) {
+		PaymentDTO paymentDTO = new PaymentDTO();
+		paymentDTO.setDate(payment.getDate());
+		paymentDTO.setValue(payment.getValue().get());
+		return null;
 	}
 }

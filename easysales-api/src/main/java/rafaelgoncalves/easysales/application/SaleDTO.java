@@ -16,6 +16,8 @@ public class SaleDTO {
 	private BigDecimal value;
 	
 	private List<ProductDTO> products;
+	
+	private List<PaymentDTO> payments;
 
 	public Date getDate() {
 		return date;
@@ -47,6 +49,14 @@ public class SaleDTO {
 
 	public void setProducts(List<ProductDTO> products) {
 		this.products = products;
+	}
+
+	public List<PaymentDTO> getPayments() {
+		return payments;
+	}
+
+	public void setPayments(List<PaymentDTO> payments) {
+		this.payments = payments;
 	}
 	
 }

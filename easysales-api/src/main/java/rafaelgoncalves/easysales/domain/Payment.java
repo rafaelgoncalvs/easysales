@@ -7,6 +7,8 @@ public class Payment {
 	private Date date;
 	
 	private Monetary value;
+	
+	private Integer codeOfInstallment;
 
 	private Payment(Date date, Monetary value) {
 		this.date = date;

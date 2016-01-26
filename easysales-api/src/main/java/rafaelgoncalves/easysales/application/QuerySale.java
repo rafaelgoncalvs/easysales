@@ -45,6 +45,6 @@ public class QuerySale {
 		PaymentDTO paymentDTO = new PaymentDTO();
 		paymentDTO.setDate(payment.getDate());
 		paymentDTO.setValue(payment.getValue().get());
-		return null;
+		return paymentDTO;
 	}
 }

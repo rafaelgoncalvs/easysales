@@ -6,73 +6,8 @@
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">    
   </head>
-
-  <body ng-controller="ListSaleController as listSaleCtrl">
-
-    <div class="container">
-
-      <div class="panel panel-default">
-        <form ng-controller="SaleController as saleCtrl">
-          <h3>Venda</h3>
-          <ul>
-            <span>Data: <input ng-model="sale.date" class="span2" type="date"></span>
-          </ul>
-          <ul>
-            <span>Cliente: <input ng-model="sale.client" class="span2" type="text" placeholder="Nome do cliente"></span>
-          </ul>
-          <ul>
-            <span>Produto: <input ng-model="saleCtrl.product.name" class="span2" type="text" placeholder="Nome do produto"></span>
-            <span>Valor: <input ng-model="saleCtrl.product.price" class="span2" type="number" placeholder="R$ 89,90"></span>
-            <button ng-click="saleCtrl.addProduct()" class="btn">Adicionar</button>
-          </ul>
-          <ul>
-            <li ng-repeat="product in saleCtrl.products">
-              <strong>{{product.name}}</strong>
-              {{product.price}}
-            </li>
-          </ul>
-          <ul>
-            <button ng-click="saleCtrl.addSale()" class="btn btn-primary btn-large">Salvar</button>
-          </ul>
-        </form>
-      </div>
-
-      <div ng-repeat="sale in sales">
-        <div class="panel panel-primary">
-          <div class="panel-body">
-            {{sale.date | date: "dd/MM/yyyy"}}
-            <h2>{{sale.client}}</h2>
-            <ul>
-              <h4>Produtos</h4>
-              <li ng-repeat="product in sale.products">
-                <strong>{{product.name}}</strong>
-                {{product.price}}
-              </li>
-            </ul>
-            <p>Total: {{sale.value}}</p>
-            <div class="panel panel-default">
-              <form ng-controller="PaymentController as paymentCtrl">
-                <div class="panel-heading">Pagamentos</div>
-                <div class="panel-body">
-                  <span>Data: <input ng-model="paymentCtrl.payment.date" class="span2" type="date"></span>
-                  <span>Valor Recebido: <input ng-model="paymentCtrl.payment.value" class="span2" type="number" placeholder="Valor recebido"></span>
-                  <button ng-click="paymentCtrl.addPayment(sale)" class="btn">Adicionar</button>
-                </div>
-              </form>
-              <div ng-repeat="payment in sale.payments">
-                <ul>
-                  <li>
-                    {{payment.date | date: "dd/MM/yyyy"}}
-                    {{payment.value}}
-                  </li>
-                </ul>
-              </div>
-          </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+  <body>
+    <section ng-view></section>
     <script src="main.js"></script>
   </body>
 </html>

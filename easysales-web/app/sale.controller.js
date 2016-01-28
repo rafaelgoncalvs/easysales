@@ -19,7 +19,6 @@ app.controller('SaleController', function($scope, $http) {
 		}
 
 		$http(request).then(function successCallback(response) {
-    		$scope.sales.unshift(saleJson);
     		$scope.sale = {};
   		}, function errorCallback(response) {
   			console.log('erro');

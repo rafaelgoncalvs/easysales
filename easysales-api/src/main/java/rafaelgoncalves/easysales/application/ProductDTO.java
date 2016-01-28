@@ -9,7 +9,7 @@ public class ProductDTO {
 
 	private String name;
 	
-	private BigDecimal value;
+	private BigDecimal price;
 
 	public String getName() {
 		return name;
@@ -19,12 +19,12 @@ public class ProductDTO {
 		this.name = name;
 	}
 
-	public BigDecimal getValue() {
-		return value;
+	public BigDecimal getPrice() {
+		return price;
 	}
 
-	public void setPrice(BigDecimal value) {
-		this.value = value;
+	public void setPrice(BigDecimal price) {
+		this.price = price;
 	}
 	
 }

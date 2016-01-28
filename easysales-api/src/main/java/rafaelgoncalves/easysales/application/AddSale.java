@@ -26,7 +26,7 @@ public class AddSale {
 	}
 
 	private Product createProduct(ProductDTO productDTO) {
-		return Product.of(productDTO.getName(), Monetary.of(productDTO.getValue()));
+		return Product.of(productDTO.getName(), Monetary.of(productDTO.getPrice()));
 	}
 	
 }
